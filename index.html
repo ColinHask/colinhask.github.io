@@ -6,246 +6,189 @@
     <title>Colin Haskins' Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif; /* Sets the font for the entire document */
-            margin: 0; /* Removes default margin */
-            padding: 0; /* Removes default padding */
-            background: #f4f4f4; /* Sets the background color */
-            color: #333; /* Sets the text color */
-            line-height: 1.6; /* Sets the line height */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
         }
         .container {
-            width: 80%; /* Sets the width of the container */
-            margin: auto; /* Centers the container */
-            overflow: hidden; /* Prevents overflow */
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
         header {
-            background: #333; /* Sets the background color of the header */
-            color: #fff; /* Sets the text color */
-            padding-top: 30px; /* Adds padding to the top */
-            min-height: 70px; /* Sets the minimum height */
-            border-bottom: #77aaff 3px solid; /* Adds a bottom border */
-            text-align: center; /* Centers the text */
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            text-align: center;
         }
         header h1 {
-            margin: 0; /* Removes margin */
-            font-size: 2.5em; /* Sets the font size */
+            margin: 0;
+            font-size: 2.5em;
         }
         nav {
-            position: relative; /* Positions the element relative to its normal position */
-            text-align: center; /* Centers the text */
-            margin-bottom: 20px; /* Adds margin to the bottom */
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .menu-icon {
-            display: none; /* Hides the menu icon by default */
-            font-size: 30px; /* Sets the font size */
-            cursor: pointer; /* Changes the cursor to pointer */
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
         }
         .menu {
-            list-style: none; /* Removes the default list styling */
-            display: flex; /* Displays the items as flex */
-            justify-content: center; /* Centers the items */
-            padding: 0; /* Removes padding */
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
         }
         .menu li {
-            margin: 0 10px; /* Adds margin to the left and right */
+            margin: 0 10px;
         }
         .menu a {
-            text-decoration: none; /* Removes text decoration */
-            color: #fff; /* Sets the text color */
-            font-size: 1.2em; /* Sets the font size */
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
         }
         #menu-toggle {
-            display: none; /* Hides the menu toggle by default */
+            display: none;
         }
         .main-section {
-            padding: 20px; /* Adds padding */
-            background: #fff; /* Sets the background color */
-            margin-bottom: 20px; /* Adds margin to the bottom */
-            border-radius: 10px; /* Rounds the corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a box shadow */
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .section-title {
-            color: #333; /* Sets the text color */
-            border-bottom: #77aaff 2px solid; /* Adds a bottom border */
-            padding-bottom: 5px; /* Adds padding to the bottom */
-            font-size: 1.5em; /* Sets the font size */
+            color: #333;
+            border-bottom: #77aaff 2px solid;
+            padding-bottom: 5px;
+            font-size: 1.5em;
         }
         ul {
-            list-style: disc; /* Sets the list style */
-            padding-left: 40px; /* Adds padding to the left */
+            list-style: disc;
+            padding-left: 40px;
         }
         ul li {
-            padding: 5px 0; /* Adds padding to the top and bottom */
+            padding: 5px 0;
         }
         footer {
-            background: #333; /* Sets the background color */
-            color: #fff; /* Sets the text color */
-            text-align: center; /* Centers the text */
-            padding: 10px 0; /* Adds padding to the top and bottom */
-            position: fixed; /* Fixes the position */
-            bottom: 0; /* Positions it at the bottom */
-            width: 100%; /* Sets the width to 100% */
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         a {
-            color: #77aaff; /* Sets the link color */
-            text-decoration: none; /* Removes text decoration */
+            color: #77aaff;
+            text-decoration: none;
         }
         a:hover {
-            text-decoration: underline; /* Adds underline on hover */
+            text-decoration: underline;
         }
         .contact-info p {
-            margin: 5px 0; /* Adds margin to the top and bottom */
+            margin: 5px 0;
         }
         .contact-info a {
-            color: #333; /* Sets the link color */
+            color: #333;
         }
         .contact-info a:hover {
-            color: #77aaff; /* Sets the link color on hover */
+            color: #77aaff;
         }
         form {
-            display: flex; /* Displays the items as flex */
-            flex-direction: column; /* Sets the flex direction to column */
+            display: flex;
+            flex-direction: column;
         }
         label {
-            margin-top: 10px; /* Adds margin to the top */
+            margin-top: 10px;
         }
         input, textarea, button {
-            margin-top: 5px; /* Adds margin to the top */
-            padding: 10px; /* Adds padding */
-            border: 1px solid #ccc; /* Adds a border */
-            border-radius: 5px; /* Rounds the corners */
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         button {
-            background-color: #77aaff; /* Sets the background color */
-            color: #fff; /* Sets the text color */
-            border: none; /* Removes the border */
-            cursor: pointer; /* Changes the cursor to pointer */
-            margin-top: 20px; /* Adds margin to the top */
+            background-color: #77aaff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
         }
         button:hover {
-            background-color: #005f99; /* Sets the background color on hover */
+            background-color: #005f99;
         }
         @media (max-width: 600px) {
             .menu {
-                display: none; /* Hides the menu by default */
-                flex-direction: column; /* Sets the flex direction to column */
-                width: 100%; /* Sets the width to 100% */
+                display: none;
+                flex-direction: column;
+                width: 100%;
             }
             .menu-icon {
-                display: block; /* Displays the menu icon */
+                display: block;
             }
             #menu-toggle:checked + .menu {
-                display: flex; /* Displays the menu when checked */
+                display: flex;
             }
         }
         button#submit-btn {
-            display: block; /* Ensures the button is displayed as a block element */
+            display: block; /* Ensure the button is displayed as a block element */
         }
         #contact-form {
-            margin-bottom: 100px; /* Adjusts the margin to create enough space under the button */
+            margin-bottom: 100px; /* Adjust the value as needed to create enough space under the button */
         }
         .image-section {
-            text-align: center; /* Centers the text */
-            margin-bottom: 20px; /* Adds margin to the bottom */
+            text-align: center;
+            margin-bottom: 20px;
         }
         .image-section img {
-            max-width: 200px; /* Sets the maximum width */
-            height: auto; /* Sets the height to auto */
-            border-radius: 50%; /* Rounds the corners */
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
         }
         .webcam-container {
-            text-align: center; /* Centers the text */
-            margin-bottom: 20px; /* Adds margin to the bottom */
+            text-align: center;
+            margin-bottom: 20px;
         }
         #webcam {
-            max-width: 100%; /* Sets the maximum width */
-            height: auto; /* Sets the height to auto */
-            border: 1px solid #ccc; /* Adds a border */
-            border-radius: 10px; /* Rounds the corners */
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
         .hidden {
-            display: none; /* Hides the element */
+            display: none;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const launchButton = document.getElementById('launch-webcam');
+            const video = document.getElementById('webcam');
+            const webcamContainer = document.getElementById('webcam-container');
 
-<script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const launchButton = document.getElementById('launch-webcam'); // Button to start the webcam
-        const video = document.getElementById('webcam'); // Video element for the webcam feed
-        const initiateButton = document.createElement('button'); // Create a new button for face recognition
-        initiateButton.textContent = "Initiate Facial Recognition"; // Set the text for the new button
-        initiateButton.classList.add('hidden'); // Hide the button initially
-        document.querySelector('.webcam-container').appendChild(initiateButton); // Append the button to the webcam container
+            launchButton.addEventListener('click', function() {
+                launchButton.classList.add('hidden');
+                video.classList.remove('hidden');
 
-        launchButton.addEventListener('click', function() {
-            console.log("Launch Webcam button clicked"); // Log button click
-            launchButton.classList.add('hidden'); // Hide the launch button
-            video.classList.remove('hidden'); // Show the video element
-
-            if (navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(function(stream) {
-                        console.log("Webcam stream started"); // Log successful stream start
-                        video.srcObject = stream; // Set the video source to the webcam stream
-                        initiateButton.classList.remove('hidden'); // Show the initiate button
-                    })
-                    .catch(function(err) {
-                        console.error("Error accessing webcam: " + err); // Log any errors
-                    });
-            } else {
-                console.error("getUserMedia not supported"); // Log unsupported error
-            }
-        });
-
-        // Event listener for the initiate button to start face detection
-        initiateButton.addEventListener('click', async function() {
-            console.log("Initiate Facial Recognition button clicked"); // Log button click
-            initiateButton.classList.add('hidden'); // Hide the initiate button
-            const canvas = document.createElement('canvas'); // Create a canvas element for drawing face detections
-            document.querySelector('.webcam-container').appendChild(canvas); // Append the canvas to the webcam container
-
-            console.log("Loading face-api.js models..."); // Log model loading start
-            try {
-                // Load the face-api.js models from the correct CDN
-                await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights');
-                await faceapi.nets.faceLandmark68Net.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights');
-                await faceapi.nets.faceRecognitionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights');
-                await faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/weights');
-                console.log("Models loaded successfully"); // Log successful model load
-            } catch (error) {
-                console.error("Error loading models: " + error); // Log model loading error
-            }
-
-            video.addEventListener('play', () => {
-                console.log("Video playing, starting face detection"); // Log video play
-                canvas.width = video.videoWidth; // Set canvas width to video width
-                canvas.height = video.videoHeight; // Set canvas height to video height
-
-                const displaySize = { width: video.videoWidth, height: video.videoHeight };
-                faceapi.matchDimensions(canvas, displaySize);
-
-                // Interval to detect faces and draw detections on the canvas
-                setInterval(async () => {
-                    console.log("Detecting faces..."); // Log face detection start
-                    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-                    console.log("Detections: ", detections); // Log detections
-                    const resizedDetections = faceapi.resizeResults(detections, displaySize);
-
-                    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-                    faceapi.draw.drawDetections(canvas, resizedDetections); // Draw face detections
-                    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections); // Draw face landmarks
-                    faceapi.draw.drawFaceExpressions(canvas, resizedDetections); // Draw face expressions
-                }, 100);
+                if (navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function(stream) {
+                            video.srcObject = stream;
+                        })
+                        .catch(function(err) {
+                            console.log("Something went wrong: " + err);
+                        });
+                }
             });
         });
-    });
-</script>
-
-
-
-
-    
+    </script>
 </head>
 <body>
 
@@ -327,7 +270,8 @@
         <h2 class="section-title">Technical Proficiencies</h2>
         <ul>
             <li>Platforms: Linux, Windows</li>
-            <li>Tools: Java, C#, Python, SQL, Microsoft Office Suite (Word, Excel, PowerPoint, Outlook)</</ul>
+            <li>Tools: Java, C#, Python, SQL, Microsoft Office Suite (Word, Excel, PowerPoint, Outlook)</li>
+        </ul>
     </section>
 
     <section class="main-section" id="employment">
