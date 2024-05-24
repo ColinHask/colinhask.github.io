@@ -156,6 +156,10 @@
         .webcam-container {
             text-align: center;
             margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         #webcam {
             max-width: 100%;
@@ -227,8 +231,8 @@
     </div>
 
     <!-- Webcam section -->
-    <div class="webcam-container">
-        <h2>Webcam Feed</h2>
+    <div class="webcam-container" id="webcam-container">
+        <h2>Webcam Demo</h2>
         <button id="launch-webcam">Launch Webcam Demo</button>
         <video id="webcam" class="hidden" autoplay></video>
     </div>
