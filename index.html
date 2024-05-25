@@ -70,6 +70,10 @@
             padding-bottom: 5px;
             font-size: 1.5em;
         }
+        .download-section {
+            text-align: center;
+            border: 2px solid #77aaff;
+        }
         ul {
             list-style: disc;
             padding-left: 40px;
@@ -165,6 +169,7 @@
             padding: 20px;
             z-index: 1000;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
     </style>
 </head>
@@ -199,7 +204,7 @@
         <p>Success-driven and enthusiastic Computer Science student seeking an internship/co-op.</p>
     </section>
 
-    <section class="main-section" id="download">
+    <section class="main-section download-section" id="download">
         <h2 class="section-title">Download Resume PDF</h2>
         <button id="downloadBtn">Download PDF</button>
     </section>
@@ -370,6 +375,5 @@
         document.getElementById('greetingPopup').style.display = 'none';
     }
 </script>
-
 </body>
 </html>
