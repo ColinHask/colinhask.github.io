@@ -153,6 +153,19 @@
             height: auto;
             border-radius: 20%;
         }
+        /* Styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -176,16 +189,6 @@
 </header>
 
 <div class="container">
-    <section class="main-section" id="contact">
-        <h2 class="section-title">Contact Information</h2>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:colinhaskins2022@gmail.com">colinhaskins000@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/colin-haskins-a52005238/" target="_blank">Colin Haskins</a></p>
-            <p>GitHub: <a href="https://github.com/colin-haskins" target="_blank">github.com/colin-haskins</a></p>
-        </div>
-    </section>
-
-    <!-- Image section at the top -->
     <div class="image-section">
         <img src="20240227_140226.jpg" alt="Colin Haskins">
         <h2>Colin Haskins</h2>
@@ -194,6 +197,11 @@
     <section class="main-section" id="objective">
         <h2 class="section-title">Objective</h2>
         <p>Success-driven and enthusiastic Computer Science student seeking an internship/co-op.</p>
+    </section>
+
+    <section class="main-section" id="download">
+        <h2 class="section-title">Download Resume PDF</h2>
+        <button id="downloadBtn">Download PDF</button>
     </section>
 
     <section class="main-section" id="profile">
@@ -296,6 +304,72 @@
 <footer>
     <p>&copy; 2024 Colin Haskins</p>
 </footer>
+
+<div class="popup" id="greetingPopup">
+    <p id="greetingMessage"></p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script>
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text('Colin Haskins\' Resume', 10, 10);
+        doc.save('ColinHaskinsResume.pdf');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchWeatherAndGreet();
+    });
+
+    function fetchWeatherAndGreet() {
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const apiKey = 'c92b2c2082677790ed87cd38dba5ef87'; // Provided API key
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    const temperature = data.main.temp;
+                    const weatherDescription = data.weather[0].description;
+                    displayGreeting(temperature, weatherDescription);
+                });
+        });
+    }
+
+    function displayGreeting(temp, weather) {
+        const now = new Date();
+        const hours = now.getHours();
+        let greeting;
+
+        if (hours < 12) {
+            greeting = 'Good morning!';
+        } else if (hours < 18) {
+            greeting = 'Good afternoon!';
+        } else {
+            greeting = 'Good evening!';
+        }
+
+        if (weather.includes('rain')) {
+            greeting += ' Please remember to carry an umbrella as it is raining.';
+        } else if (temp < 10) {
+            greeting += ' The temperature is quite low. Please dress warmly.';
+        } else if (temp > 30) {
+            greeting += ' The temperature is quite high. Please stay hydrated and cool.';
+        } else {
+            greeting += ` The weather is pleasant with a temperature of ${temp}°C.`;
+        }
+
+        document.getElementById('greetingMessage').textContent = greeting;
+        document.getElementById('greetingPopup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('greetingPopup').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
