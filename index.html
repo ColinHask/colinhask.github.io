@@ -305,7 +305,7 @@ button#submit-btn {
 <script>
     document.getElementById('downloadBtn').addEventListener('click', () => {
         const link = document.createElement('a');
-        link.href = 'https://github.com/ColinHask/colinhask.github.io/blob/main/ColinHaskinsResume.pdf';
+        link.href = 'ColinHaskinsResume.pdf';  // Ensure this link is direct to the PDF
         link.download = 'ColinHaskinsResume.pdf';
         link.click();
     });
