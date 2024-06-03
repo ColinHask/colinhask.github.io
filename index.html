@@ -195,6 +195,7 @@
             height: auto;
             border-radius: 5px;
             margin-bottom: 10px;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
         }
         .swiper-slide img.kart1 {
             max-width: 500px; /* Make Kart1 image bigger */
@@ -218,6 +219,23 @@
         }
         .swiper-button-prev {
             left: 10px;
+        }
+        /* Fullscreen Image Styles */
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fullscreen-overlay img {
+            max-width: 90%;
+            max-height: 90%;
         }
     </style>
 </head>
@@ -293,7 +311,7 @@
                 <!-- Slide 6 -->
                 <div class="swiper-slide">
                     <img src="Kart3.jpg" alt="Kart Project 3">
-                    <p>Top veiw of Autonomous Kart named "Voltron"</p>
+                    <p>Top view of Autonomous Kart named "Voltron"</p>
                 </div>
                 
                 
@@ -411,6 +429,11 @@
     <p>&copy; 2024 Colin Haskins</p>
 </footer>
 
+<!-- Fullscreen Image Overlay -->
+<div class="fullscreen-overlay" id="fullscreenOverlay">
+    <img src="" alt="Full Screen Image" id="fullscreenImage">
+</div>
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     document.getElementById('downloadBtn').addEventListener('click', () => {
@@ -448,6 +471,21 @@
         // Call adjustArrows on load and on resize
         adjustArrows();
         window.addEventListener('resize', adjustArrows);
+
+        // Fullscreen image functionality
+        const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+        const fullscreenImage = document.getElementById('fullscreenImage');
+
+        document.querySelectorAll('.swiper-slide img').forEach(img => {
+            img.addEventListener('click', () => {
+                fullscreenImage.src = img.src;
+                fullscreenOverlay.style.display = 'flex';
+            });
+        });
+
+        fullscreenOverlay.addEventListener('click', () => {
+            fullscreenOverlay.style.display = 'none';
+        });
     });
 </script>
 </body>
