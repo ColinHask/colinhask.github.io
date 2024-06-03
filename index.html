@@ -157,20 +157,6 @@
             height: auto;
             border-radius: 20%;
         }
-        /* Styles for the popup */
-        .popup {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            z-index: 1000;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -284,7 +270,7 @@
     </section>
 
     <section class="main-section" id="education">
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title">Education</h3>
         <h3>Kennesaw State University - Kennesaw, GA</h3>
         <p>Bachelor of Science in Computer Science | Expected Graduation: May 2025</p>
     </section>
@@ -310,70 +296,13 @@
     <p>&copy; 2024 Colin Haskins</p>
 </footer>
 
-<div class="popup" id="greetingPopup">
-    <p id="greetingMessage"></p>
-    <button onclick="closePopup()">Close</button>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 <script>
     document.getElementById('downloadBtn').addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.text('Colin Haskins\' Resume', 10, 10);
-        doc.save('ColinHaskinsResume.pdf');
+        const link = document.createElement('a');
+        link.href = 'https://github.com/ColinHask/colinhask.github.io/blob/main/ColinHaskinsResume.pdf';
+        link.download = 'ColinHaskinsResume.pdf';
+        link.click();
     });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        fetchWeatherAndGreet();
-    });
-
-    function fetchWeatherAndGreet() {
-        navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            const apiKey = 'c92b2c2082677790ed87cd38dba5ef87'; // Provided API key
-
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
-                .then(response => response.json())
-                .then(data => {
-                    const temperature = data.main.temp;
-                    const weatherDescription = data.weather[0].description;
-                    displayGreeting(temperature, weatherDescription);
-                });
-        });
-    }
-
-    function displayGreeting(temp, weather) {
-        const now = new Date();
-        const hours = now.getHours();
-        let greeting;
-
-        if (hours < 12) {
-            greeting = 'Good morning!';
-        } else if (hours < 18) {
-            greeting = 'Good afternoon!';
-        } else {
-            greeting = 'Good evening!';
-        }
-
-        if (weather.includes('rain')) {
-            greeting += ' Please remember to carry an umbrella as it is raining.';
-        } else if (temp < 10) {
-            greeting += ' The temperature is quite low. Please dress warmly.';
-        } else if (temp > 30) {
-            greeting += ' The temperature is quite high. Please stay hydrated and cool.';
-        } else {
-            greeting += ` The weather is pleasant with a temperature of ${temp}°C.`;
-        }
-
-        document.getElementById('greetingMessage').textContent = greeting;
-        document.getElementById('greetingPopup').style.display = 'block';
-    }
-
-    function closePopup() {
-        document.getElementById('greetingPopup').style.display = 'none';
-    }
 </script>
 </body>
 </html>
